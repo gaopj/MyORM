@@ -1,0 +1,10 @@
+package gpj.orm.bean;
+
+/**
+ * 存储表结构的信息
+ * @author gpj
+ *
+ */
+public class TableInfo {
+
+}
