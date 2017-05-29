@@ -2,7 +2,6 @@ package gpj.orm.utils;
 
 import gpj.orm.bean.ColumnInfo;
 import gpj.orm.bean.JavaFieldGetSet;
-import gpj.orm.core.MySqlTypeConvertor;
 import gpj.orm.core.TypeConvertor;
 
 /**
@@ -21,7 +20,7 @@ public class JavaFileUtils {
 		JavaFieldGetSet jfgs = new JavaFieldGetSet();
 		
 		String javaFieldType =convertor.databaseType2JavaType(column.getDataType());
-		jfgs.setFieldInfo("\tprivate "+javaFieldType +" "+column.getName() +";\n");
+		jfgs.setFieldInfo("private "+javaFieldType +" "+column.getName() +";\n");
 		
 		//public String getUsername(){return username;}
 		//生成get源码
@@ -42,13 +41,6 @@ public class JavaFileUtils {
 		
 		
 		return jfgs;
-	}
-	
-	public static void main(String[] args){
-		ColumnInfo ci = new ColumnInfo("id","int",0);
-		
-		JavaFieldGetSet f= createFieldGetSetSRC(ci,new MySqlTypeConvertor());
-		System.out.println(f);
 	}
 
 }

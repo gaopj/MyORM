@@ -21,7 +21,7 @@ public class JavaFileUtils {
 		JavaFieldGetSet jfgs = new JavaFieldGetSet();
 		
 		String javaFieldType =convertor.databaseType2JavaType(column.getDataType());
-		jfgs.setFieldInfo("\tprivate "+javaFieldType +" "+column.getName() +";\n");
+		jfgs.setFieldInfo("private "+javaFieldType +" "+column.getName() +";\n");
 		
 		//public String getUsername(){return username;}
 		//生成get源码

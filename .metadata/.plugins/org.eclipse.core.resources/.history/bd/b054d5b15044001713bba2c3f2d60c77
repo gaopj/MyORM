@@ -21,7 +21,7 @@ public class JavaFileUtils {
 		JavaFieldGetSet jfgs = new JavaFieldGetSet();
 		
 		String javaFieldType =convertor.databaseType2JavaType(column.getDataType());
-		jfgs.setFieldInfo("\tprivate "+javaFieldType +" "+column.getName() +";\n");
+		jfgs.setFieldInfo("private "+javaFieldType +" "+column.getName() +";\n");
 		
 		//public String getUsername(){return username;}
 		//生成get源码
@@ -45,7 +45,7 @@ public class JavaFileUtils {
 	}
 	
 	public static void main(String[] args){
-		ColumnInfo ci = new ColumnInfo("id","int",0);
+		ColumnInfo ci = new ColumnInfo("username","varchar",0);
 		
 		JavaFieldGetSet f= createFieldGetSetSRC(ci,new MySqlTypeConvertor());
 		System.out.println(f);
