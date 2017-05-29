@@ -1,0 +1,49 @@
+package gpj.orm.core;
+
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import gpj.orm.bean.ColumnInfo;
+import gpj.orm.bean.TableInfo;
+
+/**
+ * 负责管理数据库多有表结构和类结构的关系，并可以表根据结构生成类机构
+ * @author gpj
+ *
+ */
+public class TableContext {
+
+	/**
+	 * 表名为key，表信息对象为value
+	 */
+	public static Map<String,TableInfo> tables = new HashMap<String,TableInfo>();
+	
+	/**
+	 * 将po的class对象和表信息关联起来。便于重用
+	 */
+	public static Map<Class,TableInfo> poClassTableMap = new HashMap<Class,TableInfo>();
+	
+	private TableContext(){}
+	
+	static{
+		try {
+			Connection con = DBManager.getMysqlConn();
+			DatabaseMetaData dbmd = con.getMetaData();
+			ResultSet tableRet = dbmd.getTables(null, "%", "%", new String[]{"TABLE"});
+			
+			while(tableRet.next()){
+				String tableName = (String)tableRet.getObject("TABLE_NAME");
+				
+				TableInfo ti = new TableInfo(tableName,new ArrayList<ColumnInfo>(),new HashMap<String,ColumnInfo>());
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

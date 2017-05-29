@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;gpj.orm.bean.ColumInfo&apos; to &apos;ColumnInfo&apos;&#x0D;&#x0A;- Original project: &apos;myORM&apos;&#x0D;&#x0A;- Original element: &apos;gpj.orm.bean.ColumInfo&apos;&#x0D;&#x0A;- Renamed element: &apos;gpj.orm.bean.ColumnInfo&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ColumInfo&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;gpj.orm.bean{ColumInfo.java[ColumInfo" matchStrategy="1" name="ColumnInfo" qualified="false" references="true" similarDeclarations="false" stamp="1496031972529" textual="false" version="1.0"/>
+</session>
