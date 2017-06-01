@@ -9,7 +9,6 @@ import gpj.orm.bean.JavaFieldGetSet;
 import gpj.orm.bean.TableInfo;
 import gpj.orm.core.DBManager;
 import gpj.orm.core.MySqlTypeConvertor;
-import gpj.orm.core.TableContext;
 import gpj.orm.core.TypeConvertor;
 
 /**
@@ -94,21 +93,14 @@ public class JavaFileUtils {
 		
 		//生成结束语句
 		src.append("}\n");
-		
-		return src.toString();
 	}
 	
 
 	public static void main(String[] args){
-//		ColumnInfo ci = new ColumnInfo("id","int",0);
-//		
-//		JavaFieldGetSet f= createFieldGetSetSRC(ci,new MySqlTypeConvertor());
-//		System.out.println(f);
+		ColumnInfo ci = new ColumnInfo("id","int",0);
 		
-		Map<String,TableInfo> map= TableContext.tables;
-		
-		TableInfo t =  map.get("t_user");
-		System.out.println(createJavaSrc(t,new MySqlTypeConvertor()));
+		JavaFieldGetSet f= createFieldGetSetSRC(ci,new MySqlTypeConvertor());
+		System.out.println(f);
 	}
 
 }

@@ -94,12 +94,4 @@ public class DBManager {
 			}
 		}
 	}
-	
-	/**
-	 * 返回configuration对象
-	 * @return
-	 */
-	public static Configuration getConf(){
-		return conf;
-	}
 }
