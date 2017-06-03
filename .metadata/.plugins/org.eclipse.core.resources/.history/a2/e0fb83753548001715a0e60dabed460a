@@ -1,0 +1,5 @@
+package gpj.orm.vo;
+
+public class T_userVO {
+
+}

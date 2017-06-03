@@ -48,9 +48,6 @@ public class MySqlQuery implements Query {
 //		}
 		
 		//System.out.println(list);
-		
-		
-		System.out.println(new MySqlQuery().queryValue("select count(*) from t_user where id<3", null));
 	}
 
 	@Override

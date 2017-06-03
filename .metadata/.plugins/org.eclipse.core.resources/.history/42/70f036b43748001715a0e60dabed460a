@@ -48,9 +48,6 @@ public class MySqlQuery implements Query {
 //		}
 		
 		//System.out.println(list);
-		
-		
-		System.out.println(new MySqlQuery().queryValue("select count(*) from t_user where id<3", null));
 	}
 
 	@Override
@@ -197,7 +194,7 @@ public class MySqlQuery implements Query {
 
 	@Override
 	public Object queryUnityRows(String sql, Class clazz, Object[] params) {
-		List list = queryRows(sql,clazz, params);
+		List list = queryRows(sql, Class clazz, Object[] params)
 		return (list==null&&list.size()>0)?null:list.get(0);
 	}
 
@@ -233,7 +230,7 @@ public class MySqlQuery implements Query {
 	@Override
 	public Number queryNumber(String sql, Object[] params) {
 		// TODO Auto-generated method stub
-		return (Number)queryValue(sql, params);
+		return (Nember)queryValue(String sql, Object[] params);
 	}
 
 }
