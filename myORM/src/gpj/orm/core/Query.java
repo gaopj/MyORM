@@ -32,7 +32,7 @@ public interface Query {
 	 * @param id	主键的值
 	 * @return
 	 */
-	void delete(Class clazz,int id);  //delete from user where id =2;
+	void delete(Class clazz,Object id);  //delete from user where id =2;
 
 	
 	/**
@@ -82,4 +82,5 @@ public interface Query {
 	 * @return 查询到的结果
 	 */
 	Number queryNumber(String sql, Object[] params);
+	
 }

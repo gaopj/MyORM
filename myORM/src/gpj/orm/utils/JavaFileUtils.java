@@ -1,5 +1,10 @@
 package gpj.orm.utils;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FilterWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -98,17 +103,42 @@ public class JavaFileUtils {
 		return src.toString();
 	}
 	
+	public static void createJavaPOFile(TableInfo tableInfo,TypeConvertor convertor){
+		String srcPath = DBManager.getConf().getSrcPath()+"\\";
+		String packagePath = DBManager.getConf().getPoPackage().replaceAll("\\.", "/");
+		File f = new File(srcPath+packagePath);
+		if(!f.exists()){
+			f.mkdirs();//目录不存在建立目录
+		}
+		
+		BufferedWriter bw =null;
+		try {
+			bw = new BufferedWriter(new FileWriter(f.getAbsolutePath()+"/"+StringUtils.firstChar2UpperCase(tableInfo.getTname())+".java"));
+			bw.write(createJavaSrc(tableInfo,convertor));
+			System.out.println("建立表 "+tableInfo.getTname()+" 对应java类： "+StringUtils.firstChar2UpperCase(tableInfo.getTname())+".java");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				if(bw!=null){
+					bw.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	public static void main(String[] args){
 //		ColumnInfo ci = new ColumnInfo("id","int",0);
 //		
 //		JavaFieldGetSet f= createFieldGetSetSRC(ci,new MySqlTypeConvertor());
 //		System.out.println(f);
-		
-		Map<String,TableInfo> map= TableContext.tables;
-		
-		TableInfo t =  map.get("t_user");
-		System.out.println(createJavaSrc(t,new MySqlTypeConvertor()));
+//		
+//		Map<String,TableInfo> map= TableContext.tables;	
+//		TableInfo t =  map.get("t_user");	
+//		createJavaPOFile(t,new MySqlTypeConvertor());
+	//	TableContext.updateJavaPOFile();
 	}
 
 }

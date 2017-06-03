@@ -9,12 +9,18 @@
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="gpj.orm.bean.ColumInfo"/>
 <fullyQualifiedTypeName name="gpj.orm.bean.JavaFieldGetSet"/>
-<fullyQualifiedTypeName name="gpj.orm.bean.ColumnInfo"/>
 <fullyQualifiedTypeName name="gpj.orm.core.TypeConvertor"/>
 <fullyQualifiedTypeName name="gpj.orm.core.MySqlTypeConvertor"/>
-<fullyQualifiedTypeName name="gpj.orm.bean.TableInfo"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="gpj.orm.core.DBManager"/>
+<fullyQualifiedTypeName name="gpj.orm.core.TableContext"/>
+<fullyQualifiedTypeName name="java.io.FileWriter"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="gpj.orm.utils.JavaFileUtils"/>
+<fullyQualifiedTypeName name="gpj.orm.bean.TableInfo"/>
+<fullyQualifiedTypeName name="gpj.orm.bean.ColumnInfo"/>
+<fullyQualifiedTypeName name="gpj.orm.utils.StringUtils"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Method"/>
 </qualifiedTypeNameHistroy>

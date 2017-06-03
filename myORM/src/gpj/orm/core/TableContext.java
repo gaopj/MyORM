@@ -10,6 +10,8 @@ import java.util.Map;
 
 import gpj.orm.bean.ColumnInfo;
 import gpj.orm.bean.TableInfo;
+import gpj.orm.utils.JavaFileUtils;
+import gpj.orm.utils.StringUtils;
 
 /**
  * 负责管理数据库多有表结构和类结构的关系，并可以表根据结构生成类机构
@@ -65,34 +67,49 @@ public class TableContext {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		//更新类机构
+		updateJavaPOFile();
 		
-//		//加载po类的class对象便于重用！
-//		loadPOTables(); 
+		//加载po包下所有类便于重用
+		loadPOTables();
+
 	}
 
+	
+	/**
+	 * 根据表结构，更新指定的po包下面的java类
+	 * 实现了从表结构转化到类结构
+	 */
+	public static void updateJavaPOFile(){
+		Map<String,TableInfo> map= TableContext.tables;	
+		for(TableInfo t:map.values()){
+			JavaFileUtils.createJavaPOFile(t,new MySqlTypeConvertor());
+		}
+	}
 	
 	public static Map<String,TableInfo> getTableInfos(){
 		return tables;
 	}
-//	
-//	//根据表结构，更新指定po包的PO类结构
-//	//根据配置文件中的：srcPath
-//	
-//	public static void updatePO(){
-//		Map<String,TableInfo> tables = TableContext.getTableInfos();
-//		
-//		for(TableInfo t:table.values()){
-//			
-//		}
-//	}
 	
-//	private static void loadPOTables() {
-//		// TODO Auto-generated method stub
-//		
-//	}
+	/**
+	 * 加载po包下面的类
+	 */
+	public static void loadPOTables(){
+		for(TableInfo tableInfo:tables.values()){
+			 try {
+				Class c= Class.forName(DBManager.getConf().getPoPackage()+"."+StringUtils.firstChar2UpperCase(tableInfo.getTname()));
+				 poClassTableMap.put(c, tableInfo);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+
 	
 	public static void main(String[] args){
 		Map<String,TableInfo> tables = getTableInfos();
-		System.out.println(tables);
+		//System.out.println(tables);
 	}
 }

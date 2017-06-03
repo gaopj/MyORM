@@ -1,0 +1,22 @@
+package gpj.orm.utils;
+
+import java.lang.reflect.Method;
+
+/**
+ * 封装了反射常用操作
+ * @author gpj
+ *
+ */
+public class ReflectUtils {
+	
+  public static void invokeGet(Class c, String fieldName){
+		try {
+			Method m = c.getMethod("get"+StringUtils.firstChar2UpperCase(onlyPriKey.getName()),null);
+			Object priKeyValue= m.invoke(obj, null);
+			
+			delete(c, priKeyValue);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+  }
+}
