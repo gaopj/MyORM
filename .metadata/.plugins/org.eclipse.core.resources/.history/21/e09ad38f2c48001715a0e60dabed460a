@@ -26,12 +26,11 @@ public class MySqlQuery  implements Query{
 
 	public static void main(String[] args){
 		T_user t = new T_user();
-		t.setId(1);
-		t.setUsername("jiazai");
-		//t.setPwd("qwer1234");
+		//t.setId(9);
+		t.setUsername("tom");
+		t.setPwd("qwer1234");
 	//	new MySqlQuery().delete(t);
-	//	new MySqlQuery().insert(t);
-		new MySqlQuery().update(t,new String[]{"username"} );
+		new MySqlQuery().insert(t);
 	}
 	
 	@Override
@@ -130,7 +129,7 @@ public class MySqlQuery  implements Query{
 		sql.append(" where ");
 		sql.append(priKey.getName()+"=? ");
 		
-		params.add(ReflectUtils.invokeGet(priKey.getName(), obj));// 主键的值
+		
 		return executeDML(sql.toString(),params.toArray());
 	}
 

@@ -26,12 +26,11 @@ public class MySqlQuery  implements Query{
 
 	public static void main(String[] args){
 		T_user t = new T_user();
-		t.setId(1);
-		t.setUsername("jiazai");
-		//t.setPwd("qwer1234");
+		//t.setId(9);
+		t.setUsername("tom");
+		t.setPwd("qwer1234");
 	//	new MySqlQuery().delete(t);
-	//	new MySqlQuery().insert(t);
-		new MySqlQuery().update(t,new String[]{"username"} );
+		new MySqlQuery().insert(t);
 	}
 	
 	@Override
@@ -113,25 +112,9 @@ public class MySqlQuery  implements Query{
 	}
 
 	@Override
-	public int update(Object obj, String[] fieldNames) {
-		// obj {"uname","pwd"}--> update 表名  set uname = ?,pwd=? where id =?
-		Class c  = obj.getClass();
-		List<Object> params = new ArrayList<Object>();//存储sql的参数对象
-		TableInfo tableInfo = TableContext.poClassTableMap.get(c);
-		ColumnInfo priKey = tableInfo.getOnlyPriKey();
-		StringBuilder sql = new StringBuilder("update "+tableInfo.getTname()+" set ");
-		
-		for(String fname:fieldNames){
-			Object fvalue = ReflectUtils.invokeGet(fname,obj);
-			params.add(fvalue);
-			sql.append(fname+"=?,");
-		}
-		sql.setCharAt(sql.length()-1, ' ');
-		sql.append(" where ");
-		sql.append(priKey.getName()+"=? ");
-		
-		params.add(ReflectUtils.invokeGet(priKey.getName(), obj));// 主键的值
-		return executeDML(sql.toString(),params.toArray());
+	public int update(Object obj, String[] fielNames) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override

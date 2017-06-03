@@ -130,7 +130,7 @@ public class MySqlQuery  implements Query{
 		sql.append(" where ");
 		sql.append(priKey.getName()+"=? ");
 		
-		params.add(ReflectUtils.invokeGet(priKey.getName(), obj));// 主键的值
+		
 		return executeDML(sql.toString(),params.toArray());
 	}
 
