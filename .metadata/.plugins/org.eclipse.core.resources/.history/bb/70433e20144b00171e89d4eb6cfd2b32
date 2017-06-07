@@ -36,8 +36,8 @@ public class MySqlQuery extends Query {
 		// new MySqlQuery().insert(t);
 		//new MySqlQuery().update(t, new String[] { "username" });
 		
-		//List<T_user> list= new MySqlQuery().queryRows("select id,username,pwd from t_user where id >?", 
-		//		 new Object[]{1},T_user.class);
+		List<T_user> list= new MySqlQuery().queryRows("select id,username,pwd from t_user where id >?", 
+				 new Object[]{1},T_user.class);
 		
 //		String sql2 = "select t.id,t.username,d.dname 'deptName',d.address 'deptAddr' from t_user t "
 //				+"join dept d on t.deptId = d.id ";
@@ -47,10 +47,10 @@ public class MySqlQuery extends Query {
 //			System.out.println(e.getUsername()+"-"+e.getDeptAddr());
 //		}
 		
-		//System.out.println(list);
+		System.out.println(list);
 		
 		
-		System.out.println(new MySqlQuery().queryValue("select count(*) from t_user where id<3", null));
+		//System.out.println(new MySqlQuery().queryValue("select count(*) from t_user where id<3", null));
 	}
 
 	@Override

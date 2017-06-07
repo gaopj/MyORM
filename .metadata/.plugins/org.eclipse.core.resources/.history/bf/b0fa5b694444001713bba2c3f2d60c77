@@ -1,7 +1,0 @@
-driver=com.mysql.jdbc.Driver
-url:jdbc\:mysql\://localhost\:3306/myorm
-user:root
-pwd:805114
-usingDB:mysql
-srcPath:E\:\\JavaPro\\MyORM\\myORM\\src
-poPackage:gpj.orm.po

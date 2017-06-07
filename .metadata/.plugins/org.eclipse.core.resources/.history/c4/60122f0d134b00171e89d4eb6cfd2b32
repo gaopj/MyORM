@@ -36,8 +36,8 @@ public class MySqlQuery extends Query {
 		// new MySqlQuery().insert(t);
 		//new MySqlQuery().update(t, new String[] { "username" });
 		
-		//List<T_user> list= new MySqlQuery().queryRows("select id,username,pwd from t_user where id >?", 
-		//		 new Object[]{1},T_user.class);
+//		List<T_user> list= new MySqlQuery().queryRows("select id,username,pwd from t_user where id >?", 
+//				T_user.class, new Object[]{3});
 		
 //		String sql2 = "select t.id,t.username,d.dname 'deptName',d.address 'deptAddr' from t_user t "
 //				+"join dept d on t.deptId = d.id ";

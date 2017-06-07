@@ -24,14 +24,6 @@ import gpj.orm.utils.ReflectUtils;
 @SuppressWarnings("all")
 public abstract class Query {
 
-	/**
-	 * 采用模板方法模式将JDBC操作封装成模板，便于重用
-	 * @param sql sql语句
-	 * @param params sql 参数
-	 * @param clazz 记录要封装到的java类
-	 * @param back CallBack的实现类，实现回调
-	 * @return
-	 */
 	public Object executeQueryTemplate(String sql, Object[] params, Class clazz, CallBack back) {
 		Connection conn = DBManager.getMysqlConn();
 		List list = null; // 存放查询结果容器
@@ -299,46 +291,30 @@ public abstract class Query {
 	 * @return 查询到的结果
 	 */
 	public Object queryValue(String sql, Object[] params) {
-//		Connection conn = DBManager.getMysqlConn();
-//		Object value = null; // 存放查询结果的对象
-//		PreparedStatement ps = null;
-//		ResultSet rs = null;
-//		try {
-//			ps = conn.prepareStatement(sql);
-//			// 给sql设参
-//			JDBCUtils.handleParams(ps, params);
-//			System.out.println(ps);
-//			rs = ps.executeQuery();
-//
-//			while (rs.next()) {
-//				// select count(*) from user
-//
-//				value = rs.getObject(1);
-//			}
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			DBManager.close(ps, conn);
-//		}
-		// return value;
+		Connection conn = DBManager.getMysqlConn();
+		Object value = null; // 存放查询结果的对象
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(sql);
+			// 给sql设参
+			JDBCUtils.handleParams(ps, params);
+			System.out.println(ps);
+			rs = ps.executeQuery();
 
-		return executeQueryTemplate(sql, params, null, new CallBack() {
+			while (rs.next()) {
+				// select count(*) from user
 
-			@Override
-			public Object doExecute(Connection conn, PreparedStatement ps, ResultSet rs) {
-				Object value =null;
-				try {
-					while (rs.next()) {
-						// select count(*) from user
-						value = rs.getObject(1);
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				return value;
+				value = rs.getObject(1);
 			}
-		});
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(ps, conn);
+		}
+
+		return value;
 	}
 
 	/**

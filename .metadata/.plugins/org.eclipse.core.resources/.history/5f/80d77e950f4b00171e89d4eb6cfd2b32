@@ -1,0 +1,5 @@
+package gpj.orm.core;
+
+public class CallBack {
+
+}
