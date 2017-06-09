@@ -16,11 +16,16 @@ public class Configuration {
 	 * @param usingDB	正在使用哪个数据库
 	 * @param srcPath	项目的源码路径
 	 * @param poPackage	扫描生成java类包（po：Persistence object 对象）
-	 */
-	
-	
+	 * @param queryClass 项目使用的查询类的路径
+	 * @param poolMinSize 连接池中最小连接数
+	 * @param poolMaxSize 连接池中最大连接数	
+	*/
+
+	public Configuration() {
+	}
+
 	public Configuration(String driver, String url, String user, String pwd, String usingDB, String srcPath,
-			String poPackage) {
+			String poPackage, String queryClass, int poolMinSize, int poolMaxSize) {
 		super();
 		this.driver = driver;
 		this.url = url;
@@ -29,9 +34,11 @@ public class Configuration {
 		this.usingDB = usingDB;
 		this.srcPath = srcPath;
 		this.poPackage = poPackage;
+		this.queryClass = queryClass;
+		this.poolMinSize = poolMinSize;
+		this.poolMaxSize = poolMaxSize;
 	}
-	public Configuration() {
-	}
+
 	private String driver;
 	private String url;
 	private	String user;
@@ -39,6 +46,32 @@ public class Configuration {
 	private	String usingDB;
 	private	String srcPath;
 	private	String poPackage;
+	private String queryClass;
+	private int poolMinSize;
+	private int poolMaxSize;
+	
+	public int getPoolMinSize() {
+		return poolMinSize;
+	}
+
+	public void setPoolMinSize(int poolMinSize) {
+		this.poolMinSize = poolMinSize;
+	}
+
+	public int getPoolMaxSize() {
+		return poolMaxSize;
+	}
+
+	public void setPoolMaxSize(int poolMaxSize) {
+		this.poolMaxSize = poolMaxSize;
+	}
+
+	public String getQueryClass() {
+		return queryClass;
+	}
+	public void setQueryClass(String queryClass) {
+		this.queryClass = queryClass;
+	}
 	public String getDriver() {
 		return driver;
 	}

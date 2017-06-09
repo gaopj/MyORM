@@ -1,0 +1,11 @@
+package gpj.orm.core;
+
+/**
+ * 创建Que
+ * @author gpj
+ *
+ */
+public class QueryFactory {
+
+	//public  Query createQuery();
+}

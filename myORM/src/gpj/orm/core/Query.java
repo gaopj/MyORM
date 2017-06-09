@@ -22,7 +22,12 @@ import gpj.orm.utils.ReflectUtils;
  */
 
 @SuppressWarnings("all")
-public abstract class Query {
+public abstract class Query implements Cloneable{
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 
 	/**
 	 * 采用模板方法模式将JDBC操作封装成模板，便于重用
