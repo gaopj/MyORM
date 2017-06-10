@@ -10,8 +10,6 @@
 <fullyQualifiedTypeName name="gpj.orm.core.TypeConvertor"/>
 <fullyQualifiedTypeName name="gpj.orm.core.MySqlTypeConvertor"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="gpj.orm.core.DBManager"/>
 <fullyQualifiedTypeName name="gpj.orm.core.TableContext"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="java.io.File"/>
@@ -21,7 +19,6 @@
 <fullyQualifiedTypeName name="gpj.orm.utils.StringUtils"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
 <fullyQualifiedTypeName name="gpj.orm.utils.ReflectUtils"/>
-<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="gpj.orm.utils.JDBCUtils"/>
 <fullyQualifiedTypeName name="gpj.orm.po.T_user"/>
@@ -30,6 +27,12 @@
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.sql.ResultSetMetaData"/>
 <fullyQualifiedTypeName name="gpj.orm.vo.T_userVO"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="gpj.orm.core.QueryFactory"/>
+<fullyQualifiedTypeName name="gpj.orm.core.Query"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="gpj.orm.core.DBManager"/>
+<fullyQualifiedTypeName name="gpj.orm.pool.DBConnPool"/>
 </qualifiedTypeNameHistroy>
