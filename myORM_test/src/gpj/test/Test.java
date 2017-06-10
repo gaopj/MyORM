@@ -1,0 +1,23 @@
+package gpj.test;
+
+import gpj.orm.core.Query;
+import gpj.orm.core.QueryFactory;
+import gpj.orm.core.TableContext;
+import gpj.orm.test.po.T_user;
+
+public class Test {
+
+	public static void main(String[] args){
+		
+		//通过这个可以生成po
+	//	TableContext.updateJavaPOFile();
+		T_user t = new T_user();
+		t.setPwd("123");
+		t.setUsername("lalala");
+		t.setDeptId(1);
+		Query q = QueryFactory.createQuery();
+		//q.insert(t);
+		Number n=q.queryNumber("select count(*) from t_user where id>?", new Object[]{3});
+		System.out.println(n);
+	}
+}

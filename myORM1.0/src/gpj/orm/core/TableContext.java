@@ -109,7 +109,7 @@ public class TableContext {
 
 	
 	public static void main(String[] args){
-		Map<String,TableInfo> tables = getTableInfos();
+	//	Map<String,TableInfo> tables = getTableInfos();
 		//System.out.println(tables);
 	}
 }
