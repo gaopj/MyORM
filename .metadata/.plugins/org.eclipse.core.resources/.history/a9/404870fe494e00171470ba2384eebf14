@@ -11,15 +11,13 @@ public class Test {
 		
 		//通过这个可以生成po
 	//	TableContext.updateJavaPOFile();
-//		T_user t = new T_user();
-//		t.setPwd("123");
-//		t.setUsername("lalala");
-//		t.setDeptId(1);
+		T_user t = new T_user();
+		t.setPwd("123");
+		t.setUsername("lalala");
+		t.setDeptId(1);
 		Query q = QueryFactory.createQuery();
-//		//q.insert(t);
-//		Number n=q.queryNumber("select count(*) from t_user where id>?", new Object[]{3});
-//		System.out.println(n);
-		T_user t=	(T_user)q.queryById(T_user.class, 3);
-		System.out.println(t);
+		//q.insert(t);
+		Number n=q.queryNumber("select count(*) from t_user where id>?", new Object[]{3});
+		System.out.println(n);
 	}
 }

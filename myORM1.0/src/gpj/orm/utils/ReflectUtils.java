@@ -30,15 +30,18 @@ public class ReflectUtils {
 		}
 	}
 
-	public static void invokeSet(Object obj,String columnName,Object columnValue) {
+	public static void invokeSet(Object obj, String columnName, Object columnValue) {
 		Method m;
 		try {
-			m = obj.getClass().getDeclaredMethod("set" + StringUtils.firstChar2UpperCase(columnName), columnValue.getClass());
-			m.invoke(obj, columnValue);
+			if (columnValue != null) {
+				m = obj.getClass().getDeclaredMethod("set" + StringUtils.firstChar2UpperCase(columnName),
+						columnValue.getClass());
+				m.invoke(obj, columnValue);
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
 	}
 
 }
